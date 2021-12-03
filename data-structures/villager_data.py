@@ -99,7 +99,7 @@ def all_names_by_hobby(filename):
     print(Music)
     return sorted(Hobbies)
 
-all_names_by_hobby(open("villagers.csv"))
+# all_names_by_hobby(open("villagers.csv"))
 
 def all_data(filename):
     """Return all the data in a file.
@@ -118,8 +118,14 @@ def all_data(filename):
 
     # TODO: replace this with your code
 
+    data = list(open(filename))
+    for villager in data:
+      current_villager = tuple([villager])
+      
+      all_data.append(current_villager)
+    print(all_data)
     return all_data
-
+# all_data("villagers.csv")
 
 def find_motto(filename, name):
     """Return the villager's motto.
