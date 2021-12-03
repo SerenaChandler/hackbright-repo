@@ -27,7 +27,7 @@ def all_species(filename):
     # print(species)
     return species_set
 
-all_species(open("villagers.csv"))
+# all_species(open("villagers.csv"))
 
 
 def get_villagers_by_species(filename, species="All"):
@@ -44,9 +44,17 @@ def get_villagers_by_species(filename, species="All"):
     villagers = []
 
     # TODO: replace this with your code
-
+    my_list = list(filename)
+    for villager in my_list:
+      index = villager.split("|")
+      if species == "All":
+        villagers.append(index[0])
+      elif species == index[1]:
+        villagers.append(index[0])
+    print(sorted(villagers))
     return sorted(villagers)
 
+get_villagers_by_species(open("villagers.csv"), "Bear")
 
 def all_names_by_hobby(filename):
     """Return a list that villagers' names, grouped by hobby.
