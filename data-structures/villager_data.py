@@ -120,10 +120,10 @@ def all_data(filename):
 
     data = list(open(filename))
     for villager in data:
-      current_villager = tuple([villager])
+      current_villager = tuple(villager.split("|"))
       
       all_data.append(current_villager)
-    print(all_data)
+    
     return all_data
 # all_data("villagers.csv")
 
@@ -143,9 +143,34 @@ def find_motto(filename, name):
 
     # TODO: replace this with your code
 
+    villagers = all_data(filename)
+    
+    for villager_ID in villagers:
+      if name == villager_ID[0]:
+        print(villager_ID[0])
+        print(villager_ID[4])
+        return villagers[4]
+    return None
+
+# find_motto("villagers.csv", "Bob")
 
 def find_likeminded_villagers(filename, name):
     """Return a set of villagers with the same personality as the given villager."""
 
     # TODO: replace this with your code
 
+    villagers = all_data(filename)
+    similar_personalities = set([])
+    for villager_ID in villagers:
+      if name == villager_ID[0]:
+        personality = villager_ID[2]
+        print(personality)
+        for villager_similar in villagers:
+          if personality == villager_similar[2]:
+            similar_personalities.add(villager_similar[0])
+            
+        print(similar_personalities)
+        return similar_personalities
+
+
+find_likeminded_villagers("villagers.csv", "Kiki")
