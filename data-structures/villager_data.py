@@ -54,7 +54,7 @@ def get_villagers_by_species(filename, species="All"):
     print(sorted(villagers))
     return sorted(villagers)
 
-get_villagers_by_species(open("villagers.csv"), "Bear")
+# get_villagers_by_species(open("villagers.csv"), "Bear")
 
 def all_names_by_hobby(filename):
     """Return a list that villagers' names, grouped by hobby.
@@ -67,9 +67,39 @@ def all_names_by_hobby(filename):
     """
 
     # TODO: replace this with your code
+    Hobbies = []
+    Fitness = []
+    Nature = []
+    Education = []
+    Music = []
+    Fashion = []
+    Play = []
 
-    return []
+    my_list = list(filename)
+    for villager in my_list:
+      index = villager.split("|")
+      if index[3] == "Fitness":
+        Fitness.append(index[0])
+      elif index[3] == "Nature":
+        Nature.append(index[0])
+      elif index[3] == "Education":
+        Education.append(index[0])
+      elif index[3] == "Music":
+        Music.append(index[0])
+      elif index[3] == "Fashion":
+        Fashion.append(index[0])
+      elif index[3] == "Play":
+        Play.append(index[0])
+    Hobbies.append(sorted(Fitness))
+    Hobbies.append(sorted(Nature))
+    Hobbies.append(sorted(Education))
+    Hobbies.append(sorted(Music))
+    Hobbies.append(sorted(Fashion))
+    Hobbies.append(sorted(Play))
+    print(Music)
+    return sorted(Hobbies)
 
+all_names_by_hobby(open("villagers.csv"))
 
 def all_data(filename):
     """Return all the data in a file.
