@@ -11,11 +11,23 @@ def all_species(filename):
       - set[str]: a set of strings
     """
 
-    species = set()
+    # species = set()
 
     # TODO: replace this with your code
+    my_list = list(filename)
+    
+    species_list = []
+    for item in my_list:
+      index = item.split("|")
+      species_list.append(index[1])
+    
+    species_set = set(species_list)
+    print(species_set)
+    # species = set(filename)
+    # print(species)
+    return species_set
 
-    return species
+all_species(open("villagers.csv"))
 
 
 def get_villagers_by_species(filename, species="All"):
@@ -92,3 +104,4 @@ def find_likeminded_villagers(filename, name):
     """Return a set of villagers with the same personality as the given villager."""
 
     # TODO: replace this with your code
+
