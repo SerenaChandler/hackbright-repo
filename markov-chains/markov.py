@@ -43,13 +43,14 @@ def make_chains(text_string):
     chains = {}
 
     # your code goes here
-    gram = 3
+    gram = 2
 
     # for i in range(gram):
     #     current_key += text_string[gra]
 
     for i in range(len(text_string) - gram):
-        current_key = (text_string[i], text_string[i+1], text_string[i+2])
+        # current_key = (text_string[i], text_string[i+1], text_string[i+2])
+        current_key = (text_string[i], text_string[i+1])
         chosen_word = text_string[i+gram]
         # get value at current key, if theres no value/key, return empty list, otherwise return value
         # append chosen_word to whatever is returned
@@ -57,6 +58,7 @@ def make_chains(text_string):
         list_of_current_key = chains.get(current_key,[])
         list_of_current_key.append(chosen_word)
         chains[current_key] = list_of_current_key
+    
     
    
     
@@ -71,14 +73,16 @@ def make_text(chains):
     # your code goes here
     # words.append(choice(list(chains)))
     
-    # upper_keys = []
-    # for key in chains.keys():
-    #     if key[0].islower():
-    #         continue
-    #     else:
-    #         upper_keys.append(key)
-
-    current_key = choice(list(chains))
+    upper_keys = []
+    for key in chains.keys():
+        if key[0].islower():
+            continue
+        else:
+            upper_keys.append(key)
+    print(upper_keys)
+    current_key = choice(upper_keys)
+    words.extend(current_key[0:])
+    print(current_key)
 
     # while current_key[0].islower():
     #     current_key = choice(list(chains))
@@ -88,8 +92,10 @@ def make_text(chains):
     while current_key in chains:
         chosen = choice(chains[current_key])
         words.append(chosen)
-        new_key = (current_key[-2],current_key[-1], chosen)
+        # new_key = (current_key[-2],current_key[-1], chosen)
+        new_key = (current_key[1], chosen)
         current_key = new_key
+        
         
     
     
