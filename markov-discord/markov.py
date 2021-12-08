@@ -1,5 +1,4 @@
 """A Markov chain generator that can tweet random messages."""
-
 import sys
 from random import choice
 
@@ -64,3 +63,6 @@ text = open_and_read_file(filenames)
 
 # Get a Markov chain
 chains = make_chains(text)
+
+string = make_text(chains)
+
