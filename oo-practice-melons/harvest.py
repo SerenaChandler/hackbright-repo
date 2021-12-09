@@ -89,7 +89,10 @@ class Melon:
         #     return True
         # return False
 
-        return melon.color_rating > min_color and melon.shape_rating > min_shape and melon.field not in bad_fields
+        if melon.color_rating > min_color and melon.shape_rating > min_shape and melon.field not in bad_fields:
+            return "Is Sellable"
+        return "Not Sellable"
+        
 
 
 def make_melons():
@@ -108,4 +111,5 @@ def get_sellability_report(melons):
 
     # Fill in the rest
     for melon in melons:
-        print(f'Harvested by {melon.harvester} from Field {melon.field}, Sellable: {melon.is_sellable(melon, 5,5,[3])}')
+        sellable = melon.is_sellable(melon, 5,8,[3])
+        print(f'Harvested by {melon.harvester} from Field {melon.field}, Sellable: {sellable}')
