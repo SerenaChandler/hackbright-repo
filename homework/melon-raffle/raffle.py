@@ -42,7 +42,7 @@ def get_customers_from_file(customer_file_path):
 def pick_winner(customers):
     """Choose a random winner from list of customers."""
 
-    chosen_customer = random.choice(customers)
+    chosen_customer = choice(customers)
 
     name = chosen_customer.name
     email = chosen_customer.email
