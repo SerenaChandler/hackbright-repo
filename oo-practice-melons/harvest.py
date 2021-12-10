@@ -111,5 +111,5 @@ def get_sellability_report(melons):
 
     # Fill in the rest
     for melon in melons:
-        sellable = melon.is_sellable(melon, 5,8,[3])
+        sellable = melon.is_sellable(melon, 5,81,[3])
         print(f'Harvested by {melon.harvester} from Field {melon.field}, Sellable: {sellable}')
