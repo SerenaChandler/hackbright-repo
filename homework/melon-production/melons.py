@@ -35,8 +35,7 @@ class Melon:
 class Squash(Melon):
     
     def prep(self):
-        robots.cleanerbot.clean(self)
-        robots.stickerbot.apply_logo(self,)
+        super().prep()
         robots.painterbot.paint(self)
         
 
