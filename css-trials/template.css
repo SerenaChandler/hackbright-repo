@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+}
+#red {
+    background-color: rgb(255, 0, 0);
+    /* height: 240px;
+    width: 350px; */
+    margin: 0;
+
+}
+
+#black {
+    background-color: black;
+}
+
+#gold {
+    background-color: #ffd700;
+}
+
+.flag{
+    height: 100px; 
+    width: 100%;
+}
+
+#flag {
+    display: block;
+    width: 500px;
+    height: 300px;
+}
+
+
+
+
+div:has(+ div){
+    height: 300px;
+    width: 300px;
+}
+
+div:nth-child(1){
+    background-color: blue;
+    height: 200px;
+    width: 350px;
+    display: inline-block;
+}
+
+div:nth-child(2){
+    background-color: red;
+    height: 200px;
+    width: 350px;
+    display: inline-block;
+    
+}
+
+.block {
+    height: 100px !important;
+    width: 100px !important;
+    background-color: black !important;
+    display: inline-block;
+    margin: 50px 0 0 50px;
+}
+
+div.parent {
+    display: inline;
+    
+}
