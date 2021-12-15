@@ -30,7 +30,7 @@ AWESOMENESS = [
 def start_here():
     """Display homepage."""
 
-    return "Hi! This is the home page."
+    return "<a href=/hello />Hi! This is the home page."
 
 
 @app.route("/hello")
@@ -50,6 +50,25 @@ def greet_person():
 
     return render_template("compliment.html", person=player, compliment=compliment)
 
+@app.route("/game")
+def game():
+
+    if request.args.get("game") == "yes":
+        return render_template("game.html")
+    else:
+        return render_template("goodbye.html")
+
+@app.route("/madlib")
+def show_madlib():
+
+    name = request.args.get("name")
+    colors = request.args.getlist("color")
+    noun = request.args.get("noun")
+    adjective = request.args.get("adjective")
+    
+    length = len(colors)
+
+    return render_template("madlib.html", name=name, colors=colors, noun=noun, adjective=adjective, length=length)
 
 if __name__ == "__main__":
     # Setting debug=True gives us error messages in the browser and also
