@@ -58,17 +58,21 @@ def game():
     else:
         return render_template("goodbye.html")
 
-@app.route("/madlib")
+@app.route("/madlib", methods=["POST"])
 def show_madlib():
 
-    name = request.args.get("name")
-    colors = request.args.getlist("color")
-    noun = request.args.get("noun")
-    adjective = request.args.get("adjective")
+    name = request.form.get("name")
+    colors = request.form.getlist("color")
+    noun = request.form.get("noun")
+    adjective = request.form.get("adjective")
     
     length = len(colors)
 
-    return render_template("madlib.html", name=name, colors=colors, noun=noun, adjective=adjective, length=length)
+    madlibs = ["madlib.html", "madlib2.html", "madlib3.html"]
+
+    chosen_madlib = choice(madlibs)
+
+    return render_template(chosen_madlib, name=name, colors=colors, noun=noun, adjective=adjective, length=length)
 
 if __name__ == "__main__":
     # Setting debug=True gives us error messages in the browser and also
