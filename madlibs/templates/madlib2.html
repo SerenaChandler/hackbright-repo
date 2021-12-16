@@ -1,13 +1,16 @@
 <!DOCTYPE html>
+
+{% extends 'base.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../static/madlibs.css">
+    
 </head>
 <body>
+    {% block content %}
     There once was a 
     {% for color in colors %}
         {{ color }} 
@@ -16,5 +19,6 @@
     sitting in the forest.
     When {{ name }} went to pick it up, it burst into flames in a totally
     {{ adjective }} way.
+    {%endblock%}
 </body>
 </html>

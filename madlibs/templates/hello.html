@@ -1,17 +1,20 @@
-<!doctype html>
+
+
+{% extends 'base.html' %}
 <html>
 <head>
   <title>Hi There!</title>
-  <link rel="stylesheet" href="../static/madlibs.css">
+  
 </head>
 <body>
-
+  {% block content %}
 <h1>Hi There!</h1>
 
 <form action="/greet">
+  
   What is your name? <input type="text" name="person">
   <input type="submit">
 </form>
-
+{%endblock%}
 </body>
 </html>
