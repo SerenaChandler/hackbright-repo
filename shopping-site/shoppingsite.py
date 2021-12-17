@@ -86,7 +86,7 @@ def show_shopping_cart():
     #     flash("Cart is Empty")
     cart = session["cart"]
     order_total = 0
-    final_order = {}
+    final_order = []
 
     for melon_id, qty in cart.items():
         print("\n")
@@ -96,7 +96,7 @@ def show_shopping_cart():
         melon_total = melon.price * qty
         melon.total = melon_total
         print(melon_total)
-        final_order[melon] = melon
+        final_order.append(melon)
         order_total += melon_total
         print("\n")
     print(order_total)
@@ -125,13 +125,13 @@ def add_to_cart(melon_id):
     # - redirect the user to the cart page
     if "cart" in session:
         cart = session["cart"]
-        flash("Successfully Added To Cart [1]")
+        
     else:
         cart = session["cart"] = {}
-        flash("Successfully MADE Cart")
+        
         
     cart[melon_id] = cart.get(melon_id, 0) + 1
-    flash("Successfully Added To Cart [2]")
+    flash("Successfully Added To Cart")
     
     return redirect("/cart")
 
